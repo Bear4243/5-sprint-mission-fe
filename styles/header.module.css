@@ -1,0 +1,25 @@
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 200px;
+}
+
+#header_left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#header_right p {
+  background: #3692ff;
+  width: 88px;
+  border-radius: 8px;
+  line-height: 42px;
+  text-align: center;
+  color: #f3f4f6;
+  font-weight: 600;
+  font-size: 16px;
+}
