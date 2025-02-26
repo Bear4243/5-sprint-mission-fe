@@ -8,18 +8,20 @@ export default function Header() {
       <div id={styles.header}>
         <div id={styles.header_left}>
           <Link href={"/"}>
-            <Image
-              src={"/assets/header-panda.svg"}
-              alt={"headerPandaImg"}
-              width={153}
-              height={51}
-            ></Image>
+            <div id={styles.header_img}>
+              <Image
+                src={"/assets/header-panda.svg"}
+                alt={"headerPandaImg"}
+                width={153}
+                height={51}
+              ></Image>
+            </div>
+          </Link>
+          <Link href={"/bulletin-board"}>
+            <p className={styles.header_text}>자유게시판</p>
           </Link>
           <Link href={"/"}>
-            <p>자유게시판</p>
-          </Link>
-          <Link href={"/"}>
-            <p>중고마켓</p>
+            <p className={styles.header_text}>중고마켓</p>
           </Link>
         </div>
         <div id={styles.header_right}>

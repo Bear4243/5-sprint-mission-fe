@@ -1,6 +1,5 @@
-import Head from "next/head";
+import styles from "@/styles/main.module.css";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import Header from "@/components/head";
 
@@ -10,18 +9,25 @@ export default function Home() {
       <Header />
       <div className="main">
         {/* <!-- 상단 이미지 --> */}
-        <nav id="nav">
-          <div id="nav_contents">
+        <nav id={styles.main_nav_box}>
+          <div id={styles.main_nav_content_box}>
             <div id="nav_top">
-              <div id="nav_top_text_box">
-                <p className="nav_top_text_box_p">일상의 모든 물건을</p>
-                <p className="nav_top_text_box_p">거래해 보세요</p>
+              <div id={styles.main_nav_text_box}>
+                <p>일상의 모든 물건을</p>
+                <p>거래해 보세요</p>
               </div>
-              <Link href={"/item"} id="nav_top_text_btn">
-                <div>구경하러 가기</div>
+              <Link href={"/item"}>
+                <div id={styles.main_nav_link}>구경하러 가기</div>
               </Link>
             </div>
-            <img id="nav_bottom_img" src="/img/Img_home_top.png" alt="" />
+            <div id={styles.main_nav_img}>
+              <Image
+                src={"/assets/main-panda.svg"}
+                alt={"mainPandaImg"}
+                width={746}
+                height={340}
+              ></Image>
+            </div>
           </div>
         </nav>
         {/* <!-- 중간 머시기 --> */}
@@ -29,8 +35,12 @@ export default function Home() {
           {/* <!-- 1번째 섹션 --> */}
           <div className="middle_part_section">
             <div className="middle_part_section_box">
-              <Image src={""} alt={""}></Image>
-              <img id="section_1_img" src="/img/Img_home_01.png" alt="" />
+              <Image
+                src={"/assets/Img_home_01.svg"}
+                alt={"mainSection1Img"}
+                width={588}
+                height={444}
+              ></Image>
               <div id="section_1_text">
                 <p>Hot item</p>
                 <p>
@@ -52,7 +62,12 @@ export default function Home() {
               id="middle_part_section_box_reverse"
               className="middle_part_section_box"
             >
-              <img id="section_2_img" src="/img/Img_home_02.png" alt="" />
+              <Image
+                src={"/assets/Img_home_02.svg"}
+                alt={"mainSection2Img"}
+                width={588}
+                height={444}
+              ></Image>
               <div id="section_2_text">
                 <p>Search</p>
                 <p>
@@ -71,7 +86,12 @@ export default function Home() {
           {/* <!-- 3번째 섹션 --> */}
           <div className="middle_part_section">
             <div className="middle_part_section_box">
-              <img id="section_3_img" src="/img/Img_home_03.png" alt="" />
+              <Image
+                src={"/assets/Img_home_03.svg"}
+                alt={"mainSection3Img"}
+                width={588}
+                height={444}
+              ></Image>
               <div id="section_3_text">
                 <p>Register</p>
                 <p>
