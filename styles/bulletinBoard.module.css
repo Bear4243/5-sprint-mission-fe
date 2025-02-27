@@ -67,6 +67,10 @@
   border-radius: 12px;
 }
 
+#user {
+  display: flex;
+}
+
 @media (max-width: 1199px) {
   #bulletin_board_box {
     width: 696px;

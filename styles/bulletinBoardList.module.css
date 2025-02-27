@@ -1,0 +1,21 @@
+#user {
+  display: flex;
+}
+
+@media (max-width: 1199px) {
+  #bulletin_board_box {
+    width: 696px;
+  }
+  #input {
+    width: 560px;
+  }
+}
+
+@media (max-width: 743px) {
+  #bulletin_board_box {
+    width: 343px;
+  }
+  #input {
+    width: 288px;
+  }
+}
