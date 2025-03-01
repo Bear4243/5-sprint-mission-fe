@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BulletinBoardList, BulletinBoard } from "@/pages/api/bulletinBoardApi";
-import styles from "@/styles/bulletinBoardBest.module.css";
+import styles from "@/styles/bulletinBoardAll.module.css";
 
 export const BulletinBoardAll = () => {
   const [boards, setBoards] = useState<BulletinBoard[]>([]);
@@ -51,22 +51,21 @@ export const BulletinBoardAll = () => {
     return <div className={styles.loading}>로딩 중...</div>;
 
   return (
-    <div className={styles.container}>
+    <div id={styles.container}>
       {boards.map((board) => (
-        <div className={styles.content_box} key={board.id}>
-          <div>
-            <h3 className={styles.title}>{board.title}</h3>
+        <div id={styles.content_box} key={board.id}>
+          <div id={styles.top_content}>
+            <h3 id={styles.title}>{board.title}</h3>
             <Image
               src={board.img || "/assets/default_img.svg"}
               alt={board.img ? "상품 이미지" : "기본 이미지"}
               width={72}
               height={72}
-              className={styles.thumbnail}
+              id={styles.thumbnail}
             />
           </div>
-          <div>
-            <div>
-              <div className={styles.profileImg}>{board.user.profileImg}</div>
+          <div id={styles.bottom_content}>
+            <div id={styles.bottom_content_left}>
               <Image
                 src={board.user.profileImg || "/assets/basic_img.svg"}
                 alt={
@@ -74,19 +73,19 @@ export const BulletinBoardAll = () => {
                 }
                 width={24}
                 height={24}
-                className={styles.thumbnail}
+                id={styles.thumbnail}
               />
-              <div className={styles.nickname}>{board.user.nickName}</div>
-              <time className={styles.date}>{board.updatedAt}</time>
+              <div id={styles.nickname}>{board.user.nickName}</div>
+              <time id={styles.date}>{board.updatedAt}</time>
             </div>
-            <div className={styles.like_container}>
+            <div id={styles.bottom_content_right}>
               <Image
                 src="/assets/ic_heart.svg"
                 alt="좋아요 아이콘"
                 width={16}
                 height={16}
               />
-              <span className={styles.like_count}>{board.like}</span>
+              <span id={styles.like_count}>{board.like}</span>
             </div>
           </div>
         </div>

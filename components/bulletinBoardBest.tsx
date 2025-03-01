@@ -22,14 +22,14 @@ export const BulletinBoardBest = () => {
       });
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div>에러: {error}</div>;
 
   return (
-    <>
+    <div id={styles.container}>
       {boards.map((board, idx) => (
         <div id={styles.content_box} key={idx}>
-          <div>
+          <div id={styles.top_content}>
             <Image
               src={"/assets/img_badge.svg"}
               alt={"베스트이미지"}
@@ -37,7 +37,7 @@ export const BulletinBoardBest = () => {
               height={30}
             ></Image>
           </div>
-          <div>
+          <div id={styles.main_content}>
             <div>{board.title}</div>
             <Image
               src={board.img || "/assets/default_img.svg"}
@@ -49,10 +49,10 @@ export const BulletinBoardBest = () => {
             />
           </div>
 
-          <div id={styles.user}>
-            <div>
+          <div id={styles.bottom_content}>
+            <div id={styles.bottom_content_left}>
               <div>{board.user.nickName}</div>
-              <div>
+              <div id={styles.bottom_content_left_like}>
                 <Image
                   src={"/assets/ic_heart.svg"}
                   alt={"headerPandaImg"}
@@ -66,6 +66,6 @@ export const BulletinBoardBest = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };

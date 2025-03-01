@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/components/head";
 import Footer from "@/components/footer";
 import { BulletinBoardBest } from "@/components/bulletinBoardBest";
+import { BulletinBoardAll } from "@/components/bulletinBoardAll";
 
 export default function BulletinBoard() {
   return (
@@ -11,7 +12,7 @@ export default function BulletinBoard() {
       <Header />
       <div id={styles.bulletin_board}>
         <div id={styles.bulletin_board_box}>
-          <div>
+          <div id={styles.best_box}>
             <p>베스트 게시글</p>
             <div>
               <BulletinBoardBest />
@@ -46,7 +47,7 @@ export default function BulletinBoard() {
             </div>
             {/* 페이지네이션 커서로 해보기 */}
             <div>
-              <div>게시글 들어갈 자리</div>
+              <BulletinBoardAll />
             </div>
           </div>
         </div>

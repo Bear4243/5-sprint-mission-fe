@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
-import { formatToYMD } from "@/utils/dateFormatter";
 
 const apiUrl: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
