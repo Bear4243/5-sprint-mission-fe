@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/head";
 import Footer from "@/components/footer";
+import { BulletinBoardBest } from "@/components/bulletinBoardBest";
 
 export default function BulletinBoard() {
   return (
@@ -13,7 +14,7 @@ export default function BulletinBoard() {
           <div>
             <p>베스트 게시글</p>
             <div>
-              <div>베스트 게시글 들어갈 자리</div>
+              <BulletinBoardBest />
             </div>
           </div>
 
@@ -50,6 +51,7 @@ export default function BulletinBoard() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

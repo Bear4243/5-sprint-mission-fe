@@ -48,7 +48,7 @@
 
 #search_content_box img {
   position: absolute;
-  left: 96px;
+  margin-left: 16px;
 }
 
 #input {
