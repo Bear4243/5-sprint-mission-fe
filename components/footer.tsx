@@ -29,6 +29,13 @@ export default function Footer() {
             </div>
             <div id="footer_ad">
               <a target="_blank" href="https://www.facebook.com/">
+                <Link href={"/bulletin-board"}></Link>
+                <Image
+                  src={"/assets/ic_facebook.svg"}
+                  alt={"headerPandaImg"}
+                  width={153}
+                  height={51}
+                ></Image>
                 <address id="facebook"></address>
               </a>
               <a target="_blank" href="https://x.com/">
