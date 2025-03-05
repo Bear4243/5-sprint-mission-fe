@@ -8,6 +8,14 @@
   width: 1200px;
 }
 
+#best_box > p {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23.87px;
+  color: #111827;
+  margin-bottom: 24px;
+}
+
 #writing_box {
   display: flex;
   justify-content: space-between;
