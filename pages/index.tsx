@@ -1,9 +1,9 @@
-import styles from "@/styles/home.module.css";
+import styles from "@/styles/main.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/head";
+import Header from "@/components/Head";
 
-export default function Home() {
+export default function Main() {
   return (
     <>
       <Header />
@@ -26,6 +26,8 @@ export default function Home() {
                 alt={"mainPandaImg"}
                 width={746}
                 height={340}
+                layout="responsive"
+                sizes="(max-width: 743px) 100vw, (max-width: 1199px) 744px, 746px"
               ></Image>
             </div>
           </div>

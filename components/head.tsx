@@ -25,7 +25,7 @@ export default function Header() {
           </Link>
         </div>
         <div id={styles.header_right}>
-          <Link href={"/"}>
+          <Link href={"/login"}>
             <p>로그인</p>
           </Link>
         </div>

@@ -1,8 +1,8 @@
 import styles from "@/styles/bulletinBoard.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/head";
-import Footer from "@/components/footer";
+import Header from "@/components/Head";
+import Footer from "@/components/Footer";
 
 export default function BulletinBoard() {
   return (
