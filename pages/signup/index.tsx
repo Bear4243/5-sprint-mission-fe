@@ -4,10 +4,10 @@ import {
   validateEmail,
   validatePassword,
   validatePasswordMatch,
-  useTogglePassword,
   checkFormValidity,
 } from "@/utils/formValidation";
 import styles from "./SignupForm.module.css";
+import { useTogglePassword } from "@/hooks/useTogglePassword";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -18,8 +18,6 @@ const SignupForm = () => {
   });
 
   const { showPassword, toggle: togglePassword } = useTogglePassword();
-  const { showPassword: showConfirmPassword, toggle: toggleConfirmPassword } =
-    useTogglePassword();
 
   const [formErrors, setFormErrors] = useState({
     email: "",

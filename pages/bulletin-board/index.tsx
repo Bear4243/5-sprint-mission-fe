@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Head";
 import Footer from "@/components/Footer";
-import { BulletinBoardBest } from "@/components/bulletinBoardBest";
-import { BulletinBoardAll } from "@/components/bulletinBoardAll";
+import { BulletinBoardBest } from "@/components/BulletinBoardBest";
+import { BulletinBoardAll } from "@/components/BulletinBoardAll";
 
 export default function BulletinBoard() {
   return (

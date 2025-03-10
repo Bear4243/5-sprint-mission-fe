@@ -7,7 +7,7 @@ import {
 } from "@/utils/formValidation";
 import styles from "@/styles/login.module.css";
 
-export const LoginForm = () => {
+export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { showPassword, toggle: togglePassword } = useTogglePassword();
@@ -90,4 +90,4 @@ export const LoginForm = () => {
       </button>
     </form>
   );
-};
+}

@@ -25,7 +25,7 @@
   width: 396px;
 }
 
-input {
+#inputField {
   background-color: #f3f4f6;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0);
@@ -40,7 +40,7 @@ input {
   color: #1f2937;
 }
 
-input:focus {
+#inputField:focus {
   outline: 1px solid #3692ff;
 }
 
@@ -62,13 +62,13 @@ input:focus {
   position: absolute;
   right: 16px;
   border: 0px;
-  background-image: url(img/pw-img-on.png);
+  /* background-image: url(@/img/pw-img-on.png); */
   background-size: contain;
 }
 
-.off {
-  background-image: url(img/pw-img-off.png);
-}
+/* .off {
+  background-image: url(@/public/assets/pw-img-off.svg);
+} */
 
 /* .on{
     background-image: url(img/pw-img-on.png);
@@ -130,7 +130,7 @@ input:focus {
 }
 
 #google {
-  background-image: url(img/google.png);
+  /* background-image: url(img/google.png); */
   width: 42px;
   height: 42px;
   display: inline-block;
@@ -139,7 +139,7 @@ input:focus {
 }
 
 #kakao {
-  background-image: url(img/kakako.png);
+  /* background-image: url(img/kakako.png); */
   width: 42px;
   height: 42px;
   display: inline-block;
