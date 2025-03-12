@@ -1,8 +1,5 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
-
-const apiUrl: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-});
+import { AxiosResponse } from "axios";
+import apiClient from "./apiClient";
 
 export interface User {
   id: string;
@@ -57,7 +54,7 @@ const getAll = async (options?: {
   }
   const query = params.toString() ? `?${params.toString()}` : "";
   try {
-    const response: AxiosResponse<BulletinBoardsResponse> = await apiUrl.get(
+    const response: AxiosResponse<BulletinBoardsResponse> = await apiClient.get(
       `/bulletinBoard/${query}`
     );
     return response.data;
@@ -71,7 +68,7 @@ const getAll = async (options?: {
  */
 const topLike = async (): Promise<BulletinBoard[]> => {
   try {
-    const response: AxiosResponse<BulletinBoard[]> = await apiUrl.get(
+    const response: AxiosResponse<BulletinBoard[]> = await apiClient.get(
       "/bulletinBoard/topLike"
     );
     return response.data;
@@ -95,7 +92,7 @@ const upload = async (
   }
 ): Promise<BulletinBoard> => {
   try {
-    const response: AxiosResponse<BulletinBoard> = await apiUrl.post(
+    const response: AxiosResponse<BulletinBoard> = await apiClient.post(
       `/bulletinBoard/Register/`,
       boardData
     );
@@ -116,7 +113,7 @@ const update = async (
 ): Promise<BulletinBoard> => {
   try {
     // PATCH 메서드를 사용하여 일부 필드만 업데이트합니다.
-    const response: AxiosResponse<BulletinBoard> = await apiUrl.patch(
+    const response: AxiosResponse<BulletinBoard> = await apiClient.patch(
       `/bulletinBoard/modify/${boardId}`,
       boardData
     );
@@ -132,7 +129,7 @@ const update = async (
  */
 const del = async (boardId: string): Promise<void> => {
   try {
-    await apiUrl.delete(`/bulletinBoard/delete/${boardId}`);
+    await apiClient.delete(`/bulletinBoard/delete/${boardId}`);
   } catch (error) {
     throw new Error("게시글 삭제에 실패했습니다.");
   }
