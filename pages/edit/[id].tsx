@@ -2,7 +2,7 @@ import styles from "@/styles/bulletinBoard.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 
 export default function BulletinBoard() {
   return (
@@ -24,7 +24,7 @@ export default function BulletinBoard() {
           <input type="text" />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
