@@ -1,4 +1,4 @@
-#content {
+.content {
   display: flex;
   flex-direction: column;
   padding: 0px 10%;
@@ -144,9 +144,8 @@
   color: #1f2937;
 }
 
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

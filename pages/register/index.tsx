@@ -1,4 +1,3 @@
-// components/Content.tsx
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { ItemsList } from "@/core/itemsApiService";
@@ -9,7 +8,6 @@ import {
   validatePrice,
   validateTags,
 } from "@/hooks/useInputValidation";
-
 import styles from "@/styles/register.module.css";
 
 interface ProductData {
@@ -19,12 +17,12 @@ interface ProductData {
   tags: string;
 }
 
-export function Content() {
+export function Register() {
   const router = useRouter();
   const [apiData, setApiData] = useState<any[]>([]);
   const [postSuccess, setPostSuccess] = useState(false);
 
-  // 커스텀 훅 타입 지정
+  // 커스텀 훅 사용
   const nameInput = useInputValidation<string>("", validateName);
   const descriptionInput = useInputValidation<string>("", validateDescription);
   const priceInput = useInputValidation<string>("", validatePrice);
@@ -49,6 +47,7 @@ export function Content() {
     }
   };
 
+  // 예시용 productData (현재 사용되지 않음)
   const productData: ProductData = {
     name: nameInput.value,
     description: descriptionInput.value,
@@ -68,8 +67,7 @@ export function Content() {
   };
 
   return (
-    <div id={styles.content}>
-      {/* ... JSX 구조는 원본과 동일 ... */}
+    <div className={styles.content}>
       <div className={styles.registration}>
         <div>상품 등록하기</div>
         <button className={styles.btn} onClick={handleSubmit}>
@@ -77,7 +75,6 @@ export function Content() {
         </button>
       </div>
 
-      {/* 입력 필드들 */}
       <div className={styles.name}>
         <div className={styles.title}>상품명</div>
         <div className={`${styles["name-input-box"]} ${styles.box}`}>
@@ -94,7 +91,7 @@ export function Content() {
         </div>
       </div>
 
-      {/* 나머지 입력 필드들도 동일하게 적용 */}
+      {/* 다른 입력 필드들도 동일한 방식으로 추가 */}
     </div>
   );
 }
