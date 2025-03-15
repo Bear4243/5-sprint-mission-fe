@@ -1,8 +1,5 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
-
-const apiUrl: AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-});
+import { AxiosResponse } from "axios";
+import { apiClientList } from "./apiClient";
 
 export interface User {
   id: string;
@@ -20,7 +17,7 @@ export interface BulletinBoard {
   title: string;
   contents: string;
   img: string;
-  createdAt: string;
+  updatedAt: string;
   like: number;
   comment?: Comment[];
   user: User;
@@ -38,7 +35,7 @@ export interface BulletinBoardsResponse {
  *    - cursor: 이전 페이지의 마지막 게시글 id (커서)
  *    - limit: 한 페이지에 가져올 게시글 수
  */
-export const getBulletinBoards = async (options?: {
+const GetAll = async (options?: {
   sort?: "like" | "createdAt";
   cursor?: string;
   limit?: number;
@@ -57,12 +54,24 @@ export const getBulletinBoards = async (options?: {
   }
   const query = params.toString() ? `?${params.toString()}` : "";
   try {
-    const response: AxiosResponse<BulletinBoardsResponse> = await apiUrl.get(
-      `/api/-board${query}`
-    );
+    const response: AxiosResponse<BulletinBoardsResponse> =
+      await apiClientList.apiClient.get(`/bulletinBoard/${query}`);
     return response.data;
   } catch (error) {
     throw new Error("게시글 목록을 가져오는데 실패했습니다.");
+  }
+};
+
+/**
+ * 좋아요 순 상위 게시글 조회
+ */
+const TopLike = async (): Promise<BulletinBoard[]> => {
+  try {
+    const response: AxiosResponse<BulletinBoard[]> =
+      await apiClientList.apiClient.get("/bulletinBoard/topLike");
+    return response.data;
+  } catch (error) {
+    throw new Error("상위 게시글 조회에 실패했습니다.");
   }
 };
 
@@ -71,15 +80,18 @@ export const getBulletinBoards = async (options?: {
  * @param userId - 게시글 작성자의 ID
  * @param boardData - 게시글 데이터 (예: title, contents 등)
  */
-export const uploadBulletinBoard = async (
+const Upload = async (
   userId: string,
-  boardData: { title: string; contents: string; [key: string]: any }
+  boardData: {
+    title: string;
+    contents: string;
+    like: number;
+    [key: string]: any;
+  }
 ): Promise<BulletinBoard> => {
   try {
-    const response: AxiosResponse<BulletinBoard> = await apiUrl.post(
-      `/api/bulletin-board?id=${userId}`,
-      boardData
-    );
+    const response: AxiosResponse<BulletinBoard> =
+      await apiClientList.apiClient.post(`/bulletinBoard/Register/`, boardData);
     return response.data;
   } catch (error) {
     throw new Error("게시글 등록에 실패했습니다.");
@@ -91,16 +103,17 @@ export const uploadBulletinBoard = async (
  * @param boardId - 수정할 게시글의 ID
  * @param boardData - 수정할 데이터 (예: title, contents)
  */
-export const updateBulletinBoard = async (
+const Update = async (
   boardId: string,
-  boardData: { title?: string; contents?: string }
+  boardData: { title?: string; contents?: string; like?: number }
 ): Promise<BulletinBoard> => {
   try {
     // PATCH 메서드를 사용하여 일부 필드만 업데이트합니다.
-    const response: AxiosResponse<BulletinBoard> = await apiUrl.patch(
-      `/api/bulletin-board/${boardId}`,
-      boardData
-    );
+    const response: AxiosResponse<BulletinBoard> =
+      await apiClientList.apiClient.patch(
+        `/bulletinBoard/modify/${boardId}`,
+        boardData
+      );
     return response.data;
   } catch (error) {
     throw new Error("게시글 수정에 실패했습니다.");
@@ -111,10 +124,12 @@ export const updateBulletinBoard = async (
  * 게시글을 삭제합니다.
  * @param boardId - 삭제할 게시글의 ID
  */
-export const deleteBulletinBoard = async (boardId: string): Promise<void> => {
+const Del = async (boardId: string): Promise<void> => {
   try {
-    await apiUrl.delete(`/api/bulletin-board/${boardId}`);
+    await apiClientList.apiClient.delete(`/bulletinBoard/delete/${boardId}`);
   } catch (error) {
     throw new Error("게시글 삭제에 실패했습니다.");
   }
 };
+
+export const BulletinBoardList = { GetAll, TopLike, Upload, Update, Del };
