@@ -1,4 +1,3 @@
-// utils/formValidation.ts
 export type ValidationResult = {
   isValid: boolean;
   errorMessage: string;
@@ -35,8 +34,10 @@ export const validatePasswordMatch = (
   return { isValid: true, errorMessage: "" };
 };
 
-export const checkFormValidity = (
-  validationResults: Record<string, boolean>
-) => {
-  return Object.values(validationResults).every((isValid) => isValid);
+export const checkFormValidity = (validationResults: {
+  [key: string]: boolean;
+}) => {
+  // 객체의 모든 값이 true인지 확인
+  const allValid = Object.values(validationResults).every((isValid) => isValid);
+  return allValid;
 };

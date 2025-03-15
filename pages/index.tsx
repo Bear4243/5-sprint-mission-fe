@@ -2,6 +2,7 @@ import styles from "@/styles/main.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Head";
+import Footer from "@/components/Footer";
 
 export default function Main() {
   return (
@@ -16,7 +17,7 @@ export default function Main() {
                 <p>일상의 모든 물건을</p>
                 <p>거래해 보세요</p>
               </div>
-              <Link href={"/item"}>
+              <Link href={"/items"}>
                 <div id={styles.main_nav_link}>구경하러 가기</div>
               </Link>
             </div>
@@ -110,7 +111,7 @@ export default function Main() {
             </div>
           </div>
         </section>
-        {/* <!-- 푸터 --> */}
+        <Footer />
       </div>
     </>
   );
